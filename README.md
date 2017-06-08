@@ -1,5 +1,3 @@
-Scales in different modes on the guitar scale
-
 <p><img src="img/guitar-fretboard-demo.gif"></p>
 
 # TODO

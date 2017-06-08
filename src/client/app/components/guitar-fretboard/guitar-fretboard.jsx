@@ -110,7 +110,6 @@ class GuitarFretboard extends React.Component {
                       string={string}
                       fretIndex={fretIndex}
                       isOpen={isOpenNote}
-                      stringIndex={index}
                       instrument={this.state.instrument}
                       audioContext={this.state.audioContext}
                       leftOffset={isOpenNote ? -31 : left * fretIndex - left / 1.45}
