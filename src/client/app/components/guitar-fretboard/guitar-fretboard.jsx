@@ -38,39 +38,51 @@ class GuitarFretboard extends React.Component {
       ),
     })
   }
+  
+  chromaticScaleNotesForRoot(rootNoteName, numberOfNotes) {
+    const rootNoteIndex = Config.scales.indexOf(rootNoteName);
+    const chrScaleNotes = Config.scales.slice(rootNoteIndex).concat(Config.scales.slice(0, rootNoteIndex));
+    
+    if(numberOfNotes && numberOfNotes < chrScaleNotes.length) {
+      return chrScaleNotes.slice(0, numberOfNotes);
+    }
+    else if(numberOfNotes && numberOfNotes > chrScaleNotes.length) {
+      // repeat the chromatic notes array to cover the numberOfNotes needed
+      const repeatArrayNTimes = Math.ceil(numberOfNotes / chrScaleNotes.length);
+      const arr = Array(repeatArrayNTimes).fill(chrScaleNotes);
+      // flatten the array and slice it to how many notes we need
+      return arr.reduce((acc, arr) => acc.concat(arr)).slice(0, numberOfNotes);
+    }
+    
+    return chrScaleNotes;
+  }
 
-  getNotesForString(stringNote) {
-    var stringNoteIndex = Config.scales.indexOf(stringNote);
+  getNotesForString(stringNoteName) {
+    var stringNoteIndex = Config.scales.indexOf(stringNoteName);
     var notes = [];
     for(var i = stringNoteIndex; i < Config.numberOfFrets + stringNoteIndex; i++)
       notes.push(Config.scales[i % Config.scales.length]);
 
     return notes;
   }
+  
+  // for the given mode (interval list), pluck the notes
+  selectNotesForScaleIntervals(notesInOrder, mode) {
+    // get the mode intervals from the modes array, given the mode's name
+    const modeIntervals = Config.modes.filter(function(mArr) { return mArr[0] == mode; })[0][1];
+    const complementedModeIntervals = [0, ...modeIntervals];
+    
+    // we remote the last element which is undefined (because the notes don't contain the last/repeating-first note)
+    return complementedModeIntervals.map((intervalInSemitones, index) => {
+      // calculate the sum of intervals in the left of the current one (including the current one)
+      const semitonesUntilNow = complementedModeIntervals.slice(0, index + 1).reduce((acc, currentVal) => acc + currentVal);
+      
+      return notesInOrder[semitonesUntilNow];
+    }).slice(0, -1);
+  }
 
   getScaleNotesForMode(rootNote, mode) {
-    var rootNoteIndex = Config.scales.indexOf(rootNote);
-    var notesInOrder = [], scaleNotes = [];
-    // TODO: refactor for shorter / functional version?
-    for(var i = rootNoteIndex; i < Config.scales.length + rootNoteIndex; i++)
-      notesInOrder.push(Config.scales[i % Config.scales.length]);
-
-    var modeArray = Config.modes.filter(function(mArr) { return mArr[0] == mode; })[0];
-
-    var addedSemitons = 0
-    // TODO: refactor
-    modeArray[1].forEach((semitones, index) => {
-      if(index == Config.modes.length - 1)
-        return;
-
-      if(index == 0)
-        scaleNotes.push(notesInOrder[0]);
-
-      addedSemitons += semitones;
-      scaleNotes.push(notesInOrder[addedSemitons]);
-    })
-
-    return scaleNotes;
+    return this.selectNotesForScaleIntervals(this.chromaticScaleNotesForRoot(rootNote), mode);
   }
 
   render() {
@@ -95,7 +107,7 @@ class GuitarFretboard extends React.Component {
               <div className="guitar-string-wrapper" key={index}>
                 <div className="guitar-string" style={{height: Config.stringThickness + Config.stringThickness * index * 0.25}}></div>
 
-                {this.getNotesForString(string[0]).map((note, fretIndex) => {
+                {this.chromaticScaleNotesForRoot(string[0], Config.numberOfFrets).map((note, fretIndex) => {
                   const isOpenNote = fretIndex == 0;
                   const shouldRenderNote = isOpenNote || this.state.scaleNotes.includes(note);
                 
