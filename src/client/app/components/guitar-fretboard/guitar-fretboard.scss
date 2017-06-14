@@ -1,8 +1,6 @@
 // this is relative to the component folder
 @import "../../print";
 
-@import "../../mixins";
-
 body {
   font-family: Helvetica;
   font-size: 15px;
@@ -27,43 +25,6 @@ body {
 
       .guitar-string {
         background-color: #111;
-      }
-    }
-
-    /* bullet */
-    .note-bullet {
-      @include border-radius(24px);
-    
-      position: absolute;
-      background-color: #333;
-      color: #fafafa;
-      width: 28px;
-      display: inline-block;
-      height: 28px;
-      cursor: pointer;
-
-      top: 6px;
-
-      &:hover {
-        background-color: #fafafa;
-        color: #333;
-      }
-
-      .note-name {
-        position: absolute;
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-        top: 5px;
-      }
-
-      .note-number {
-        position: absolute;
-        display: inline-block;
-        left: 30px;
-        bottom: -7px;
-        color: #333;
-        font-size: 0.9em;
       }
     }
 

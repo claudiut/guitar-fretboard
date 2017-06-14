@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   scales: ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B'],
   

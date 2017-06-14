@@ -1,3 +1,5 @@
+"use strict";
+
 import React from 'react'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -5,11 +7,13 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-import Config from './config.js'
+import Config from '../../config.js'
+// import Scale from '../../modules/music-utilities/scale';
+import GuitarFretboardNote from '../note/note.jsx';
+
 
 // styles
 import styles from './guitar-fretboard.scss';
-import GuitarFretboardNote from './note.jsx';
 
 class GuitarFretboard extends React.Component {
 

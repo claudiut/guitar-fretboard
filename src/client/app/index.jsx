@@ -1,3 +1,5 @@
+"use strict";
+
 //  paths are relative to index.js which is in the 'app' folder
 
 // Stylesheets
@@ -10,7 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import GFConfig from './components/guitar-fretboard/config.js';
+import GFConfig from './config.js';
 import GuitarFretboard from './components/guitar-fretboard/guitar-fretboard.jsx';
 
 class App extends React.Component {  

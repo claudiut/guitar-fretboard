@@ -17,7 +17,6 @@ body {
     overflow: hidden;
     width: 1424px;
     /* strings */
-    /* bullet */
     /* frets */
     /* nut */ }
     #guitar-fretboard-wrapper .guitar-fretboard .guitar-string-wrapper {
@@ -25,35 +24,6 @@ body {
       position: relative; }
       #guitar-fretboard-wrapper .guitar-fretboard .guitar-string-wrapper .guitar-string {
         background-color: #111; }
-    #guitar-fretboard-wrapper .guitar-fretboard .note-bullet {
-      -webkit-border-radius: 24px;
-      -moz-border-radius: 24px;
-      -ms-border-radius: 24px;
-      border-radius: 24px;
-      position: absolute;
-      background-color: #333;
-      color: #fafafa;
-      width: 28px;
-      display: inline-block;
-      height: 28px;
-      cursor: pointer;
-      top: 6px; }
-      #guitar-fretboard-wrapper .guitar-fretboard .note-bullet:hover {
-        background-color: #fafafa;
-        color: #333; }
-      #guitar-fretboard-wrapper .guitar-fretboard .note-bullet .note-name {
-        position: absolute;
-        display: inline-block;
-        width: 100%;
-        text-align: center;
-        top: 5px; }
-      #guitar-fretboard-wrapper .guitar-fretboard .note-bullet .note-number {
-        position: absolute;
-        display: inline-block;
-        left: 30px;
-        bottom: -7px;
-        color: #333;
-        font-size: 0.9em; }
     #guitar-fretboard-wrapper .guitar-fretboard .guitar-fret-wrapper {
       position: absolute;
       top: 0;

@@ -1,11 +1,16 @@
+"use strict";
+
 import React from 'react';
 import SoundFond from 'soundfont-player';
 
-import Config from './config.js';
+import Config from '../../config.js';
+
+// styles
+import styles from './note.scss';
 
 export default function(props) {
   
-  function handleClick() {
+  var handleClick = () => {
     if(!props.instrument) return;
     
     // https://github.com/danigb/soundfont-player
