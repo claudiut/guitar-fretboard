@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --harmony --compilers js:babel-register --recursive $MY_TESTS_PATH",
     "start": "webpack -d --watch",
     "build": "webpack -p"
   },
@@ -25,8 +25,10 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
+    "mocha": "^3.4.2",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
+    "should": "^11.2.1",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1"
   }

@@ -13,6 +13,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 import GFConfig from './config.js';
+import Scale from '../../modules/music-utilities/scale';
 import GuitarFretboard from './components/guitar-fretboard/guitar-fretboard.jsx';
 
 class App extends React.Component {  
@@ -21,7 +22,7 @@ class App extends React.Component {
     
     this.state = {
       scale: 'C',
-      mode: GFConfig.modes[0][0]
+      mode: 'Ionian'
     }
   }
   
@@ -35,7 +36,7 @@ class App extends React.Component {
               value={this.state.scale}
               onChange={(event, index, value) => this.setState({scale: value})}
             >
-              {GFConfig.scales.map(s => {
+              {Scale.chromaticNotes.map(s => {
                 return <MenuItem value={s} primaryText={s} key={s} />
               })}
             </SelectField>
@@ -45,7 +46,7 @@ class App extends React.Component {
               value={this.state.mode}
               onChange={(event, index, value) => this.setState({mode: value})}
             >
-              {GFConfig.modes.map(m => {
+              {Scale.modes.map(m => {
                 return <MenuItem value={m[0]} primaryText={m[0]} key={m[0]} />
               })}
             </SelectField>
