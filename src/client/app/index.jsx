@@ -52,7 +52,7 @@ class App extends React.Component {
             </SelectField>
           </div>
       
-          <GuitarFretboard scale={this.state.scale} mode={this.state.mode} />
+          <GuitarFretboard scale={Scale(this.state.scale, this.state.mode)} />
         </div>
       </MuiThemeProvider>
     );
