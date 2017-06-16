@@ -23,7 +23,7 @@ class GuitarFretboard extends React.Component {
     
     this.fretWidth = (document.getElementsByTagName("body")[0].clientWidth - 28) / Config.numberOfFrets;
     
-    this.audioContext = new (AudioContext || webkitAudioContext)();
+    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     
     Soundfont.instrument(this.audioContext, 'acoustic_guitar_steel', {gain: 2}).then(instrument => {
       this.setState({instrument: instrument});
