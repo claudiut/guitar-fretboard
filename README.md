@@ -1,6 +1,6 @@
-<p><a href="https://claudiut.github.io/guitar-fretboard">Live Guitar Fretboard App</a></p>
+<p><a href="https://claudiut.github.io/guitar-fretboard">Click here for the Guitar Fretboard App</a></p>
 
-<p><img src="img/guitar-fretboard-demo.gif"></p>
+<p><img src="img/guitar-fretboard-demo.png"></p>
 
 # TODO
 - fretboard for 4, 5 or 6 stringed bass
