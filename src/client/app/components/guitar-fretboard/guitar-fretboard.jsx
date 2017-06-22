@@ -25,7 +25,7 @@ class GuitarFretboard extends React.Component {
     
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
     
-    Soundfont.instrument(this.audioContext, 'acoustic_guitar_steel', {gain: 2}).then(instrument => {
+    Soundfont.instrument(this.audioContext, 'acoustic_guitar_steel', {gain: 20}).then(instrument => {
       this.setState({instrument: instrument});
     });
   }

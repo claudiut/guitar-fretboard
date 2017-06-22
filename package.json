@@ -1,5 +1,5 @@
 {
-  "name": "rnf-stack-project",
+  "name": "guitar-fretboard",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,8 +15,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-tap-event-plugin": "^2.0.1",
-    "soundfont-player": "^0.10.5",
-    "webpack": "^2.4.1"
+    "soundfont-player": "^0.10.5"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
