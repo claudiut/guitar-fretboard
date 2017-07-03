@@ -1,19 +1,15 @@
 "use strict";
 
-//  paths are relative to index.js which is in the 'app' folder
-
-// Stylesheets
-// import styles from './index.scss';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 // Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
 import GFConfig from './config.js';
-import Scale from '../../modules/music-utilities/scale';
+import Scale from './modules/music-utilities/scale';
 import GuitarFretboard from './components/guitar-fretboard/guitar-fretboard.jsx';
 
 class App extends React.Component {  
@@ -24,6 +20,12 @@ class App extends React.Component {
       scale: 'C',
       mode: 'Ionian'
     }
+
+    window.GuitarFretboard = window.GuitarFretboard || {};
+    window.GuitarFretboard.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    Soundfont.instrument(window.GuitarFretboard.audioContext, 'acoustic_guitar_steel', {gain: 15}).then(instrument => {
+      window.GuitarFretboard.instrument = instrument;
+    });
   }
   
   render() {

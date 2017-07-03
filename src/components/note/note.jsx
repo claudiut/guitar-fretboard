@@ -8,15 +8,14 @@ import Config from '../../config.js';
 // styles
 import styles from './note.scss';
 
-export default function(props) {
-  
+export default function(props) {;
   var handleClick = () => {
-    if(!props.instrument) return;
+    if(!window.GuitarFretboard.instrument) return;
     
     // https://github.com/danigb/soundfont-player
     // http://www.electronics.dit.ie/staff/tscarff/Music_technology/midi/midi_note_numbers_for_octaves.htm
     // lowest E is number 28. Octaves go n + 12
-    props.instrument.play(props.fretIndex + props.string[1] + Config.octaveOffset * 12).stop(props.audioContext.currentTime + 1);
+    window.GuitarFretboard.instrument.play(props.fretIndex + props.stringNote[1] + Config.octaveOffset * 12).stop(window.GuitarFretboard.audioContext.currentTime + 1);
   }
   
   return (
