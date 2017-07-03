@@ -1,4 +1,4 @@
-<p><a href="https://claudiut.github.io/guitar-fretboard">Click here for the Guitar Fretboard App</a></p>
+<p><a href="https://claudiut.github.io/guitar-fretboard/public">Click here for the Guitar Fretboard App</a></p>
 
 <p><img src="img/guitar-fretboard-demo.png"></p>
 
